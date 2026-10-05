@@ -76,7 +76,7 @@ body {
 }
 
 
-/* CONTENEDOR PRINCIPAL */
+/* CONTENEDOR */
 
 .container {
     width: 90%;
@@ -121,6 +121,7 @@ body {
     background-color: white;
 
     border: 1px solid #e2e8f0;
+
     border-radius: 14px;
 
     box-shadow: 0 5px 20px rgba(15, 39, 71, 0.08);
@@ -186,6 +187,7 @@ body {
     padding: 13px 14px;
 
     border: 1px solid #cbd5e1;
+
     border-radius: 8px;
 
     background-color: #f8fafc;
@@ -202,6 +204,19 @@ body {
     border-color: #2f80ed;
 
     background-color: white;
+}
+
+
+/* MENSAJES DE ERROR */
+
+.error-message {
+    min-height: 18px;
+
+    margin-top: 5px;
+
+    color: #dc2626;
+
+    font-size: 13px;
 }
 
 
@@ -315,6 +330,7 @@ body {
 
 .credit-status {
     margin-top: 25px;
+
     padding: 20px;
 
     border-radius: 10px;

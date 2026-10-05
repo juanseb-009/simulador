@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,7 +13,9 @@
 <body>
 
     <header class="header">
+
         <div class="logo-container">
+
             <div class="logo-icon">
                 AB
             </div>
@@ -20,37 +23,49 @@
             <div class="logo-text">
                 <span>Andes</span>Bank
             </div>
+
         </div>
 
         <p class="header-description">
             Simulador de Crédito
         </p>
+
     </header>
 
 
     <main class="container">
 
         <section class="intro">
+
             <h1>Simulador de Crédito</h1>
 
             <p>
                 Calcula tu capacidad de pago y conoce las condiciones
                 estimadas de tu crédito.
             </p>
+
         </section>
 
+
+        <!-- DATOS FINANCIEROS -->
 
         <section class="card">
 
             <div class="section-title">
+
                 <h2>Datos financieros</h2>
-                <p>Ingresa tus ingresos y egresos mensuales.</p>
+
+                <p>
+                    Ingresa tus ingresos y egresos mensuales.
+                </p>
+
             </div>
 
 
             <div class="form-grid">
 
                 <div class="form-group">
+
                     <label for="txtIngresos">
                         Ingresos mensuales
                     </label>
@@ -60,10 +75,17 @@
                         id="txtIngresos"
                         placeholder="Ej. 1000"
                     >
+
+                    <span
+                        id="errorIngresos"
+                        class="error-message"
+                    ></span>
+
                 </div>
 
 
                 <div class="form-group">
+
                     <label for="txtEgresos">
                         Egresos mensuales
                     </label>
@@ -73,6 +95,12 @@
                         id="txtEgresos"
                         placeholder="Ej. 600"
                     >
+
+                    <span
+                        id="errorEgresos"
+                        class="error-message"
+                    ></span>
+
                 </div>
 
             </div>
@@ -81,6 +109,7 @@
             <div class="results-grid">
 
                 <div class="result-box">
+
                     <span class="result-label">
                         Disponible
                     </span>
@@ -92,10 +121,12 @@
                     <span class="result-description">
                         Dinero disponible
                     </span>
+
                 </div>
 
 
                 <div class="result-box">
+
                     <span class="result-label">
                         Capacidad de pago
                     </span>
@@ -107,6 +138,7 @@
                     <span class="result-description">
                         Capacidad mensual
                     </span>
+
                 </div>
 
             </div>
@@ -114,20 +146,25 @@
         </section>
 
 
+        <!-- SOLICITUD DE CRÉDITO -->
+
         <section class="card">
 
             <div class="section-title">
+
                 <h2>Solicitud de crédito</h2>
 
                 <p>
                     Ingresa los datos del crédito que deseas simular.
                 </p>
+
             </div>
 
 
             <div class="form-grid">
 
                 <div class="form-group">
+
                     <label for="txtMonto">
                         Monto del crédito
                     </label>
@@ -137,10 +174,17 @@
                         id="txtMonto"
                         placeholder="Ej. 2000"
                     >
+
+                    <span
+                        id="errorMonto"
+                        class="error-message"
+                    ></span>
+
                 </div>
 
 
                 <div class="form-group">
+
                     <label for="txtPlazo">
                         Plazo en años
                     </label>
@@ -150,10 +194,17 @@
                         id="txtPlazo"
                         placeholder="Ej. 1"
                     >
+
+                    <span
+                        id="errorPlazo"
+                        class="error-message"
+                    ></span>
+
                 </div>
 
 
                 <div class="form-group">
+
                     <label for="txtTasaInteres">
                         Tasa de interés (%)
                     </label>
@@ -163,41 +214,63 @@
                         id="txtTasaInteres"
                         placeholder="Ej. 10"
                     >
+
+                    <span
+                        id="errorTasaInteres"
+                        class="error-message"
+                    ></span>
+
                 </div>
 
             </div>
 
+
+            <!-- RESULTADOS -->
 
             <div class="credit-results">
 
                 <div class="credit-result">
-                    <span>Interés a pagar</span>
+
+                    <span>
+                        Interés a pagar
+                    </span>
 
                     <strong id="spnInteresPagar">
                         0.00
                     </strong>
+
                 </div>
 
 
                 <div class="credit-result">
-                    <span>Total préstamo</span>
+
+                    <span>
+                        Total préstamo
+                    </span>
 
                     <strong id="spnTotalPrestamo">
                         0.00
                     </strong>
+
                 </div>
 
 
                 <div class="credit-result highlight">
-                    <span>Cuota mensual</span>
+
+                    <span>
+                        Cuota mensual
+                    </span>
 
                     <strong id="spnCuotaMensual">
                         0.00
                     </strong>
+
                 </div>
 
             </div>
 
+
+            <!-- ESTADO -->
 
             <div class="credit-status">
 
@@ -214,6 +287,8 @@
 
             </div>
 
+
+            <!-- BOTONES -->
 
             <div class="buttons">
 
@@ -237,9 +312,11 @@
 
 
         <footer>
+
             <p>
                 AndesBank © 2026 | Simulador de crédito
             </p>
+
         </footer>
 
     </main>
@@ -249,4 +326,5 @@
     <script src="simulador.js"></script>
 
 </body>
+
 </html>

@@ -1,0 +1,9 @@
+
+Prompt 1:
+
+Actúa como programador web y diseñador. Necesito agregar validaciones a un simulador de crédito 
+desarrollado únicamente con HTML, CSS y JavaScript, 
+sin utilizar librerías externas. Las validaciones deben ejecutarse al presionar el botón Calcular Crédito 
+y los mensajes de error deben aparecer debajo del campo correspondiente. 
+Mantén separados HTML, CSS y JavaScript, conserva los identificadores existentes y evita utilizar código innecesariamente avanzado. 
+Primero prepara la estructura HTML y CSS necesaria para mostrar los mensajes de error sin implementar todavía las validaciones.
