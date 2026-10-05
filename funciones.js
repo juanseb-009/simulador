@@ -62,3 +62,16 @@ function validarNumero(valor) {
 
     return true;
 }
+
+
+/* VALIDACIÓN DE MÍNIMO Y MÁXIMO */
+
+function validarRango(valor, minimo, maximo) {
+    let numero = Number(valor);
+
+    if (numero < minimo || numero > maximo) {
+        return false;
+    }
+
+    return true;
+}

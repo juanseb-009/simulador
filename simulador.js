@@ -7,7 +7,7 @@ function calcular() {
     let tasaTexto = document.getElementById("txtTasaInteres").value;
 
 
-    /* LIMPIAR MENSAJES ANTERIORES */
+    /* LIMPIAR MENSAJES */
 
     document.getElementById("errorIngresos").textContent = "";
     document.getElementById("errorEgresos").textContent = "";
@@ -19,7 +19,7 @@ function calcular() {
     let formularioValido = true;
 
 
-    /* VALIDAR CAMPOS OBLIGATORIOS */
+    /* CAMPOS OBLIGATORIOS */
 
     if (!validarCampoObligatorio(ingresosTexto)) {
 
@@ -66,14 +66,12 @@ function calcular() {
     }
 
 
-    /* DETENER SI HAY CAMPOS VACÍOS */
-
     if (!formularioValido) {
         return;
     }
 
 
-    /* VALIDAR INGRESOS */
+    /* VALIDAR QUE SEAN NÚMEROS */
 
     if (!validarNumero(ingresosTexto)) {
 
@@ -84,8 +82,6 @@ function calcular() {
     }
 
 
-    /* VALIDAR EGRESOS */
-
     if (!validarNumero(egresosTexto)) {
 
         document.getElementById("errorEgresos").textContent =
@@ -94,8 +90,6 @@ function calcular() {
         formularioValido = false;
     }
 
-
-    /* VALIDAR MONTO */
 
     if (!validarNumero(montoTexto)) {
 
@@ -106,8 +100,6 @@ function calcular() {
     }
 
 
-    /* VALIDAR PLAZO */
-
     if (!validarNumero(plazoTexto)) {
 
         document.getElementById("errorPlazo").textContent =
@@ -116,8 +108,6 @@ function calcular() {
         formularioValido = false;
     }
 
-
-    /* VALIDAR TASA */
 
     if (!validarNumero(tasaTexto)) {
 
@@ -128,17 +118,81 @@ function calcular() {
     }
 
 
-    /* DETENER SI HAY DATOS NO NUMÉRICOS */
+    if (!formularioValido) {
+        return;
+    }
+
+
+    /* VALIDAR INGRESOS */
+
+    if (!validarRango(ingresosTexto, 1, 100000)) {
+
+        document.getElementById("errorIngresos").textContent =
+            "Los ingresos deben estar entre 1 y 100000.";
+
+        formularioValido = false;
+    }
+
+
+    /* VALIDAR EGRESOS */
+
+    if (!validarRango(egresosTexto, 1, 100000)) {
+
+        document.getElementById("errorEgresos").textContent =
+            "Los egresos deben estar entre 1 y 100000.";
+
+        formularioValido = false;
+    }
+
+
+    /* VALIDAR MONTO */
+
+    if (!validarRango(montoTexto, 500, 50000)) {
+
+        document.getElementById("errorMonto").textContent =
+            "El monto debe estar entre 500 y 50000.";
+
+        formularioValido = false;
+    }
+
+
+    /* VALIDAR PLAZO */
+
+    if (!validarRango(plazoTexto, 1, 10)) {
+
+        document.getElementById("errorPlazo").textContent =
+            "El plazo debe estar entre 1 y 10 años.";
+
+        formularioValido = false;
+    }
+
+
+    /* VALIDAR TASA */
+
+    if (!validarRango(tasaTexto, 1, 30)) {
+
+        document.getElementById("errorTasaInteres").textContent =
+            "La tasa debe estar entre 1% y 30%.";
+
+        formularioValido = false;
+    }
+
+
+    /* DETENER SI EXISTE UN ERROR */
 
     if (!formularioValido) {
         return;
     }
 
 
-    /* CONVERTIR INGRESOS Y EGRESOS */
+    /* CONVERTIR VALORES */
 
     let ingresos = parseFloat(ingresosTexto);
     let egresos = parseFloat(egresosTexto);
+
+    let monto = parseInt(montoTexto);
+    let plazoAnios = parseInt(plazoTexto);
+    let tasa = parseInt(tasaTexto);
 
 
     /* CALCULAR DISPONIBLE */
@@ -152,7 +206,7 @@ function calcular() {
         disponible.toFixed(2);
 
 
-    /* CALCULAR CAPACIDAD DE PAGO */
+    /* CALCULAR CAPACIDAD */
 
     let capacidadPago = calcularCapacidadPago(
         disponible
@@ -160,13 +214,6 @@ function calcular() {
 
     document.getElementById("spnCapacidadPago").textContent =
         capacidadPago.toFixed(2);
-
-
-    /* CONVERTIR DATOS DEL CRÉDITO */
-
-    let monto = parseInt(montoTexto);
-    let plazoAnios = parseInt(plazoTexto);
-    let tasa = parseInt(tasaTexto);
 
 
     /* CALCULAR INTERÉS */
