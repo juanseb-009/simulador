@@ -49,3 +49,16 @@ function validarCampoObligatorio(valor) {
 
     return true;
 }
+
+
+/* VALIDACIÓN DE NÚMEROS */
+
+function validarNumero(valor) {
+    let numero = Number(valor);
+
+    if (!Number.isFinite(numero)) {
+        return false;
+    }
+
+    return true;
+}

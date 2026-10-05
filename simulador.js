@@ -19,9 +19,10 @@ function calcular() {
     let formularioValido = true;
 
 
-    /* VALIDAR INGRESOS */
+    /* VALIDAR CAMPOS OBLIGATORIOS */
 
     if (!validarCampoObligatorio(ingresosTexto)) {
+
         document.getElementById("errorIngresos").textContent =
             "Este campo es obligatorio.";
 
@@ -29,9 +30,8 @@ function calcular() {
     }
 
 
-    /* VALIDAR EGRESOS */
-
     if (!validarCampoObligatorio(egresosTexto)) {
+
         document.getElementById("errorEgresos").textContent =
             "Este campo es obligatorio.";
 
@@ -39,9 +39,8 @@ function calcular() {
     }
 
 
-    /* VALIDAR MONTO */
-
     if (!validarCampoObligatorio(montoTexto)) {
+
         document.getElementById("errorMonto").textContent =
             "Este campo es obligatorio.";
 
@@ -49,9 +48,8 @@ function calcular() {
     }
 
 
-    /* VALIDAR PLAZO */
-
     if (!validarCampoObligatorio(plazoTexto)) {
+
         document.getElementById("errorPlazo").textContent =
             "Este campo es obligatorio.";
 
@@ -59,9 +57,8 @@ function calcular() {
     }
 
 
-    /* VALIDAR TASA */
-
     if (!validarCampoObligatorio(tasaTexto)) {
+
         document.getElementById("errorTasaInteres").textContent =
             "Este campo es obligatorio.";
 
@@ -69,14 +66,76 @@ function calcular() {
     }
 
 
-    /* SI HAY ERRORES, NO CONTINUAR */
+    /* DETENER SI HAY CAMPOS VACÍOS */
 
     if (!formularioValido) {
         return;
     }
 
 
-    /* OBTENER VALORES NUMÉRICOS */
+    /* VALIDAR INGRESOS */
+
+    if (!validarNumero(ingresosTexto)) {
+
+        document.getElementById("errorIngresos").textContent =
+            "Ingrese un valor numérico válido.";
+
+        formularioValido = false;
+    }
+
+
+    /* VALIDAR EGRESOS */
+
+    if (!validarNumero(egresosTexto)) {
+
+        document.getElementById("errorEgresos").textContent =
+            "Ingrese un valor numérico válido.";
+
+        formularioValido = false;
+    }
+
+
+    /* VALIDAR MONTO */
+
+    if (!validarNumero(montoTexto)) {
+
+        document.getElementById("errorMonto").textContent =
+            "Ingrese un valor numérico válido.";
+
+        formularioValido = false;
+    }
+
+
+    /* VALIDAR PLAZO */
+
+    if (!validarNumero(plazoTexto)) {
+
+        document.getElementById("errorPlazo").textContent =
+            "Ingrese un valor numérico válido.";
+
+        formularioValido = false;
+    }
+
+
+    /* VALIDAR TASA */
+
+    if (!validarNumero(tasaTexto)) {
+
+        document.getElementById("errorTasaInteres").textContent =
+            "Ingrese un valor numérico válido.";
+
+        formularioValido = false;
+    }
+
+
+    /* DETENER SI HAY DATOS NO NUMÉRICOS */
+
+    if (!formularioValido) {
+        return;
+    }
+
+
+    /* CONVERTIR INGRESOS Y EGRESOS */
 
     let ingresos = parseFloat(ingresosTexto);
     let egresos = parseFloat(egresosTexto);
@@ -84,7 +143,10 @@ function calcular() {
 
     /* CALCULAR DISPONIBLE */
 
-    let disponible = calcularDisponible(ingresos, egresos);
+    let disponible = calcularDisponible(
+        ingresos,
+        egresos
+    );
 
     document.getElementById("spnDisponible").textContent =
         disponible.toFixed(2);
@@ -92,13 +154,15 @@ function calcular() {
 
     /* CALCULAR CAPACIDAD DE PAGO */
 
-    let capacidadPago = calcularCapacidadPago(disponible);
+    let capacidadPago = calcularCapacidadPago(
+        disponible
+    );
 
     document.getElementById("spnCapacidadPago").textContent =
         capacidadPago.toFixed(2);
 
 
-    /* OBTENER DATOS DEL CRÉDITO */
+    /* CONVERTIR DATOS DEL CRÉDITO */
 
     let monto = parseInt(montoTexto);
     let plazoAnios = parseInt(plazoTexto);
