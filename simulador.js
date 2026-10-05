@@ -6,6 +6,9 @@ function calcular() {
     let disponible = calcularDisponible(ingresos, egresos);
 
     document.getElementById("spnDisponible").textContent = disponible.toFixed(2);
+    
+    let capacidadPago = calcularCapacidadPago(disponible);
+    document.getElementById("spnCapacidadPago").textContent = capacidadPago.toFixed(2);
 }
 
 document.getElementById("btnCalcularCredito").addEventListener("click", calcular);
