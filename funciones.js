@@ -75,3 +75,29 @@ function validarRango(valor, minimo, maximo) {
 
     return true;
 }
+
+
+/* VALIDACIÓN DE NÚMERO ENTERO */
+
+function validarEntero(valor) {
+    let numero = Number(valor);
+
+    if (!Number.isInteger(numero)) {
+        return false;
+    }
+
+    return true;
+}
+
+
+/* VALIDACIÓN DEL MONTO SEGÚN LOS INGRESOS */
+
+function validarMontoSegunIngresos(monto, ingresos) {
+    let montoMaximo = ingresos * 5;
+
+    if (monto > montoMaximo) {
+        return false;
+    }
+
+    return true;
+}

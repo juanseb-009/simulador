@@ -71,7 +71,7 @@ function calcular() {
     }
 
 
-    /* VALIDAR QUE SEAN NÚMEROS */
+    /* VALIDAR NÚMEROS */
 
     if (!validarNumero(ingresosTexto)) {
 
@@ -123,7 +123,7 @@ function calcular() {
     }
 
 
-    /* VALIDAR INGRESOS */
+    /* VALIDAR RANGOS */
 
     if (!validarRango(ingresosTexto, 1, 100000)) {
 
@@ -134,8 +134,6 @@ function calcular() {
     }
 
 
-    /* VALIDAR EGRESOS */
-
     if (!validarRango(egresosTexto, 1, 100000)) {
 
         document.getElementById("errorEgresos").textContent =
@@ -144,8 +142,6 @@ function calcular() {
         formularioValido = false;
     }
 
-
-    /* VALIDAR MONTO */
 
     if (!validarRango(montoTexto, 500, 50000)) {
 
@@ -156,8 +152,6 @@ function calcular() {
     }
 
 
-    /* VALIDAR PLAZO */
-
     if (!validarRango(plazoTexto, 1, 10)) {
 
         document.getElementById("errorPlazo").textContent =
@@ -166,8 +160,6 @@ function calcular() {
         formularioValido = false;
     }
 
-
-    /* VALIDAR TASA */
 
     if (!validarRango(tasaTexto, 1, 30)) {
 
@@ -178,7 +170,39 @@ function calcular() {
     }
 
 
-    /* DETENER SI EXISTE UN ERROR */
+    if (!formularioValido) {
+        return;
+    }
+
+
+    /* VALIDAR ENTEROS */
+
+    if (!validarEntero(montoTexto)) {
+
+        document.getElementById("errorMonto").textContent =
+            "El monto debe ser un número entero.";
+
+        formularioValido = false;
+    }
+
+
+    if (!validarEntero(plazoTexto)) {
+
+        document.getElementById("errorPlazo").textContent =
+            "El plazo debe ser un número entero.";
+
+        formularioValido = false;
+    }
+
+
+    if (!validarEntero(tasaTexto)) {
+
+        document.getElementById("errorTasaInteres").textContent =
+            "La tasa debe ser un número entero.";
+
+        formularioValido = false;
+    }
+
 
     if (!formularioValido) {
         return;
@@ -195,6 +219,19 @@ function calcular() {
     let tasa = parseInt(tasaTexto);
 
 
+    /* REGLA DE CRÉDITO:
+       EL MONTO NO PUEDE SUPERAR 5 VECES
+       LOS INGRESOS MENSUALES */
+
+    if (!validarMontoSegunIngresos(monto, ingresos)) {
+
+        document.getElementById("errorMonto").textContent =
+            "El monto no puede superar 5 veces tus ingresos mensuales.";
+
+        return;
+    }
+
+
     /* CALCULAR DISPONIBLE */
 
     let disponible = calcularDisponible(
@@ -206,7 +243,7 @@ function calcular() {
         disponible.toFixed(2);
 
 
-    /* CALCULAR CAPACIDAD */
+    /* CALCULAR CAPACIDAD DE PAGO */
 
     let capacidadPago = calcularCapacidadPago(
         disponible
