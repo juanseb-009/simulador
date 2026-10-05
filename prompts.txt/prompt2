@@ -1,0 +1,6 @@
+Prompt 2:
+Mejora visualmente el simulador de crédito utilizando únicamente HTML y CSS, sin librerías externas.
+ Utiliza una institución financiera ficticia llamada AndesBank, con una apariencia empresarial, profesional, limpia y moderna. 
+ Mantén todos los identificadores HTML utilizados por el JavaScript para no afectar la funcionalidad existente.
+  Organiza los datos financieros, resultados y solicitud de crédito de forma clara.
+   Incluye un logotipo creado con HTML y CSS, colores corporativos y un diseño responsive para computadoras, tablets y teléfonos móviles.
