@@ -1,5 +1,6 @@
-
+==================================================
 Prompt 1:
+==================================================
 
 Actúa como programador web y diseñador. Necesito agregar validaciones a un simulador de crédito 
 desarrollado únicamente con HTML, CSS y JavaScript, 
@@ -7,3 +8,85 @@ sin utilizar librerías externas. Las validaciones deben ejecutarse al presionar
 y los mensajes de error deben aparecer debajo del campo correspondiente. 
 Mantén separados HTML, CSS y JavaScript, conserva los identificadores existentes y evita utilizar código innecesariamente avanzado. 
 Primero prepara la estructura HTML y CSS necesaria para mostrar los mensajes de error sin implementar todavía las validaciones.
+
+==================================================
+PROMPT 2 - VALIDAR CAMPOS OBLIGATORIOS
+==================================================
+
+Agrega una validación para comprobar que todos los campos del simulador sean obligatorios.
+
+Si un campo está vacío, debe aparecer debajo de ese campo el mensaje:
+
+"Este campo es obligatorio."
+
+La validación debe ejecutarse al presionar el botón de calcular y el cálculo no debe ejecutarse mientras existan campos obligatorios vacíos.
+
+Mantén HTML, CSS y JavaScript separados, no utilices librerías externas y conserva la lógica existente.
+
+
+==================================================
+PROMPT 3 - VALIDAR DATOS NUMÉRICOS
+==================================================
+
+Agrega una validación para comprobar que los valores ingresados en ingresos, egresos, monto, plazo y tasa de interés sean valores numéricos válidos.
+
+Debe permitir valores decimales donde corresponda, especialmente para ingresos y egresos.
+
+Si un valor no es numérico, mostrar debajo del campo:
+
+"Ingrese un valor numérico válido."
+
+La validación debe ejecutarse al presionar el botón de calcular y el cálculo debe detenerse si existe algún dato no numérico.
+
+Mantén HTML, CSS y JavaScript separados, no utilices librerías externas y conserva la lógica original del simulador.
+
+
+==================================================
+PROMPT 4 - VALIDAR VALORES MÍNIMOS Y MÁXIMOS
+==================================================
+
+Agrega validaciones de valores mínimos y máximos al simulador de crédito.
+
+Utiliza las siguientes reglas:
+
+- Ingresos entre 1 y 100000.
+- Egresos entre 1 y 100000.
+- Monto del crédito entre 500 y 50000.
+- Plazo entre 1 y 10 años.
+- Tasa de interés entre 1% y 30%.
+
+Los mensajes deben aparecer debajo del campo correspondiente y el cálculo debe detenerse si existe algún valor fuera de rango.
+
+Mantén HTML, CSS y JavaScript separados, no utilices librerías externas y conserva las funciones de cálculo existentes.
+
+
+==================================================
+PROMPT 5 - AGREGAR REGLAS ESPECÍFICAS DE CRÉDITO
+==================================================
+
+Agrega reglas específicas de negocio al simulador de crédito.
+
+El monto solicitado no puede superar 5 veces los ingresos mensuales del usuario.
+
+Si se incumple esta regla, debe aparecer un mensaje debajo del campo monto:
+
+"El monto no puede superar 5 veces tus ingresos mensuales."
+
+El cálculo no debe realizarse si esta regla no se cumple.
+
+Además, debido a que el taller original trabaja el monto, plazo y tasa como valores enteros, validar que esos tres campos sean números enteros.
+
+Mantener las validaciones anteriores, separar HTML, CSS y JavaScript, no utilizar librerías externas y conservar la lógica original del simulador.
+
+
+==================================================
+PROMPT 6 - EVITAR RESULTADOS CON DATOS INVÁLIDOS
+==================================================
+
+Agrega una validación final para evitar que se mantengan resultados de un cálculo anterior cuando el usuario vuelve a presionar el botón de calcular y existen errores de validación.
+
+Antes de realizar cualquier validación, limpia los resultados anteriores del simulador.
+
+Si existe algún error, no debe realizarse ningún cálculo ni mostrarse información anterior.
+
+Mantén las validaciones existentes, conserva la lógica original del simulador, utiliza HTML, CSS y JavaScript separados y no utilices librerías externas.
