@@ -40,7 +40,9 @@ function aprobarCredito(capacidadPago, cuotaMensual) {
 }
 
 
-/* VALIDACIÓN DE CAMPOS OBLIGATORIOS */
+/* =========================================
+   VALIDACIONES
+========================================= */
 
 function validarCampoObligatorio(valor) {
     if (valor.trim() === "") {
@@ -50,8 +52,6 @@ function validarCampoObligatorio(valor) {
     return true;
 }
 
-
-/* VALIDACIÓN DE NÚMEROS */
 
 function validarNumero(valor) {
     let numero = Number(valor);
@@ -64,8 +64,6 @@ function validarNumero(valor) {
 }
 
 
-/* VALIDACIÓN DE MÍNIMO Y MÁXIMO */
-
 function validarRango(valor, minimo, maximo) {
     let numero = Number(valor);
 
@@ -77,8 +75,6 @@ function validarRango(valor, minimo, maximo) {
 }
 
 
-/* VALIDACIÓN DE NÚMERO ENTERO */
-
 function validarEntero(valor) {
     let numero = Number(valor);
 
@@ -89,8 +85,6 @@ function validarEntero(valor) {
     return true;
 }
 
-
-/* VALIDACIÓN DEL MONTO SEGÚN LOS INGRESOS */
 
 function validarMontoSegunIngresos(monto, ingresos) {
     let montoMaximo = ingresos * 5;

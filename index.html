@@ -12,298 +12,247 @@
 
 <body>
 
-    <header class="header">
+    <header class="encabezado">
 
-        <div class="logo-container">
+        <div class="contenedor encabezado-contenido">
 
-            <div class="logo-icon">
-                AB
+            <div class="logo">
+
+                <div class="logo-icono">
+                    AB
+                </div>
+
+                <div class="logo-texto">
+                    <h1>AndesBank</h1>
+                    <span>Soluciones financieras</span>
+                </div>
+
             </div>
 
-            <div class="logo-text">
-                <span>Andes</span>Bank
+            <div class="encabezado-info">
+                <span>SIMULADOR DE CRÉDITO</span>
             </div>
 
         </div>
 
-        <p class="header-description">
-            Simulador de Crédito
-        </p>
-
     </header>
 
 
-    <main class="container">
+    <main class="contenedor principal">
 
-        <section class="intro">
+        <section class="presentacion">
 
-            <h1>Simulador de Crédito</h1>
+            <div class="presentacion-texto">
 
-            <p>
-                Calcula tu capacidad de pago y conoce las condiciones
-                estimadas de tu crédito.
-            </p>
+                <span class="etiqueta">
+                    SIMULADOR FINANCIERO
+                </span>
+
+                <h2>
+                    Calcula tu capacidad de crédito
+                </h2>
+
+                <p>
+                    Ingresa tus datos financieros y conoce el valor
+                    disponible, tu capacidad de pago y una estimación
+                    de tu crédito.
+                </p>
+
+            </div>
 
         </section>
 
 
-        <!-- DATOS FINANCIEROS -->
+        <section class="tarjeta simulador">
 
-        <section class="card">
+            <div class="tarjeta-titulo">
 
-            <div class="section-title">
-
-                <h2>Datos financieros</h2>
+                <h2>
+                    Datos financieros
+                </h2>
 
                 <p>
-                    Ingresa tus ingresos y egresos mensuales.
+                    Completa todos los campos para realizar la simulación.
                 </p>
 
             </div>
 
 
-            <div class="form-grid">
+            <div class="formulario">
 
-                <div class="form-group">
+                <!-- INGRESOS -->
+
+                <div class="campo">
 
                     <label for="txtIngresos">
                         Ingresos mensuales
                     </label>
 
-                    <input
-                        type="text"
-                        id="txtIngresos"
-                        placeholder="Ej. 1000"
-                    >
+                    <div class="campo-input">
+
+                        <span class="simbolo">
+                            $
+                        </span>
+
+                        <input
+                            type="text"
+                            id="txtIngresos"
+                            placeholder="Ej. 1000.40"
+                            onblur="validarIngresos()"
+                        >
+
+                    </div>
 
                     <span
                         id="errorIngresos"
-                        class="error-message"
-                    ></span>
+                        class="error-message">
+                    </span>
 
                 </div>
 
 
-                <div class="form-group">
+                <!-- EGRESOS -->
+
+                <div class="campo">
 
                     <label for="txtEgresos">
                         Egresos mensuales
                     </label>
 
-                    <input
-                        type="text"
-                        id="txtEgresos"
-                        placeholder="Ej. 600"
-                    >
+                    <div class="campo-input">
+
+                        <span class="simbolo">
+                            $
+                        </span>
+
+                        <input
+                            type="text"
+                            id="txtEgresos"
+                            placeholder="Ej. 600"
+                            onblur="validarEgresos()"
+                        >
+
+                    </div>
 
                     <span
                         id="errorEgresos"
-                        class="error-message"
-                    ></span>
-
-                </div>
-
-            </div>
-
-
-            <div class="results-grid">
-
-                <div class="result-box">
-
-                    <span class="result-label">
-                        Disponible
-                    </span>
-
-                    <strong id="spnDisponible">
-                        0.00
-                    </strong>
-
-                    <span class="result-description">
-                        Dinero disponible
+                        class="error-message">
                     </span>
 
                 </div>
 
 
-                <div class="result-box">
+                <!-- MONTO -->
 
-                    <span class="result-label">
-                        Capacidad de pago
-                    </span>
-
-                    <strong id="spnCapacidadPago">
-                        0.00
-                    </strong>
-
-                    <span class="result-description">
-                        Capacidad mensual
-                    </span>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- SOLICITUD DE CRÉDITO -->
-
-        <section class="card">
-
-            <div class="section-title">
-
-                <h2>Solicitud de crédito</h2>
-
-                <p>
-                    Ingresa los datos del crédito que deseas simular.
-                </p>
-
-            </div>
-
-
-            <div class="form-grid">
-
-                <div class="form-group">
+                <div class="campo">
 
                     <label for="txtMonto">
-                        Monto del crédito
+                        Monto solicitado
                     </label>
 
-                    <input
-                        type="text"
-                        id="txtMonto"
-                        placeholder="Ej. 2000"
-                    >
+                    <div class="campo-input">
+
+                        <span class="simbolo">
+                            $
+                        </span>
+
+                        <input
+                            type="text"
+                            id="txtMonto"
+                            placeholder="Ej. 5000"
+                            onblur="validarMonto()"
+                        >
+
+                    </div>
 
                     <span
                         id="errorMonto"
-                        class="error-message"
-                    ></span>
+                        class="error-message">
+                    </span>
 
                 </div>
 
 
-                <div class="form-group">
+                <!-- PLAZO -->
+
+                <div class="campo">
 
                     <label for="txtPlazo">
                         Plazo en años
                     </label>
 
-                    <input
-                        type="text"
-                        id="txtPlazo"
-                        placeholder="Ej. 1"
-                    >
+                    <div class="campo-input">
+
+                        <input
+                            type="text"
+                            id="txtPlazo"
+                            placeholder="Ej. 2"
+                            onblur="validarPlazo()"
+                        >
+
+                        <span class="unidad">
+                            años
+                        </span>
+
+                    </div>
 
                     <span
                         id="errorPlazo"
-                        class="error-message"
-                    ></span>
+                        class="error-message">
+                    </span>
 
                 </div>
 
 
-                <div class="form-group">
+                <!-- TASA -->
+
+                <div class="campo">
 
                     <label for="txtTasaInteres">
-                        Tasa de interés (%)
+                        Tasa de interés anual
                     </label>
 
-                    <input
-                        type="text"
-                        id="txtTasaInteres"
-                        placeholder="Ej. 10"
-                    >
+                    <div class="campo-input">
+
+                        <input
+                            type="text"
+                            id="txtTasaInteres"
+                            placeholder="Ej. 10"
+                            onblur="validarTasa()"
+                        >
+
+                        <span class="unidad">
+                            %
+                        </span>
+
+                    </div>
 
                     <span
                         id="errorTasaInteres"
-                        class="error-message"
-                    ></span>
-
-                </div>
-
-            </div>
-
-
-            <!-- RESULTADOS -->
-
-            <div class="credit-results">
-
-                <div class="credit-result">
-
-                    <span>
-                        Interés a pagar
+                        class="error-message">
                     </span>
 
-                    <strong id="spnInteresPagar">
-                        0.00
-                    </strong>
-
                 </div>
-
-
-                <div class="credit-result">
-
-                    <span>
-                        Total préstamo
-                    </span>
-
-                    <strong id="spnTotalPrestamo">
-                        0.00
-                    </strong>
-
-                </div>
-
-
-                <div class="credit-result highlight">
-
-                    <span>
-                        Cuota mensual
-                    </span>
-
-                    <strong id="spnCuotaMensual">
-                        0.00
-                    </strong>
-
-                </div>
-
-            </div>
-
-
-            <!-- ESTADO -->
-
-            <div class="credit-status">
-
-                <span class="status-label">
-                    Estado de crédito
-                </span>
-
-                <span
-                    id="spnEstadoCredito"
-                    class="status"
-                >
-                    ANALIZANDO...
-                </span>
 
             </div>
 
 
             <!-- BOTONES -->
 
-            <div class="buttons">
+            <div class="acciones">
 
                 <button
+                    type="button"
                     id="btnCalcularCredito"
-                    class="btn-primary"
-                >
-                    Calcular Crédito
+                    class="btn-principal">
+                    Calcular simulador
                 </button>
 
                 <button
+                    type="button"
                     id="btnReiniciar"
-                    class="btn-secondary"
-                >
-                    Reiniciar
+                    class="btn-secundario">
+                    Limpiar
                 </button>
 
             </div>
@@ -311,16 +260,153 @@
         </section>
 
 
-        <footer>
+        <!-- RESULTADOS -->
 
-            <p>
-                AndesBank © 2026 | Simulador de crédito
-            </p>
+        <section class="resultados">
 
-        </footer>
+            <div class="seccion-titulo">
+
+                <span class="etiqueta">
+                    <h2>RESULTADOS</h2>
+                </span>
+
+                <h2>
+                    
+                </h2>
+
+            </div>
+
+
+            <div class="resultados-grid">
+
+                <article class="resultado-card">
+
+                    <span class="resultado-label">
+                        Disponible mensual
+                    </span>
+
+                    <strong>
+                        $<span id="spnDisponible"></span>
+                    </strong>
+
+                    <p>
+                        Dinero disponible después de tus egresos.
+                    </p>
+
+                </article>
+
+
+                <article class="resultado-card">
+
+                    <span class="resultado-label">
+                        Capacidad de pago
+                    </span>
+
+                    <strong>
+                        $<span id="spnCapacidadPago"></span>
+                    </strong>
+
+                    <p>
+                        Corresponde al 50% del disponible mensual.
+                    </p>
+
+                </article>
+
+
+                <article class="resultado-card">
+
+                    <span class="resultado-label">
+                        Interés a pagar
+                    </span>
+
+                    <strong>
+                        $<span id="spnInteresPagar"></span>
+                    </strong>
+
+                    <p>
+                        Interés calculado mediante interés simple.
+                    </p>
+
+                </article>
+
+
+                <article class="resultado-card">
+
+                    <span class="resultado-label">
+                        Total del préstamo
+                    </span>
+
+                    <strong>
+                        $<span id="spnTotalPrestamo"></span>
+                    </strong>
+
+                    <p>
+                        Incluye monto, interés y $100 adicionales.
+                    </p>
+
+                </article>
+
+
+                <article class="resultado-card resultado-destacado">
+
+                    <span class="resultado-label">
+                        Cuota mensual
+                    </span>
+
+                    <strong>
+                        $<span id="spnCuotaMensual"></span>
+                    </strong>
+
+                    <p>
+                        Valor estimado que pagarías cada mes.
+                    </p>
+
+                </article>
+
+
+                <article class="resultado-card estado-card">
+
+                    <span class="resultado-label">
+                        Estado del crédito
+                    </span>
+
+                    <strong id="spnEstadoCredito">
+                    </strong>
+
+                    <p>
+                        Resultado de la comparación entre tu capacidad
+                        de pago y la cuota mensual.
+                    </p>
+
+                </article>
+
+            </div>
+
+        </section>
 
     </main>
 
+
+    <!-- PIE DE PÁGINA -->
+
+    <footer class="pie">
+
+        <div class="contenedor">
+
+            <p>
+                AndesBank &copy; 2026
+            </p>
+
+            <span>
+                Simulador de crédito académico
+            </span>
+
+        </div>
+
+    </footer>
+
+
+    <!-- JAVASCRIPT -->
 
     <script src="funciones.js"></script>
     <script src="simulador.js"></script>
